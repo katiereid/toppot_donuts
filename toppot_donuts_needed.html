@@ -1,0 +1,39 @@
+<script>
+  function Store(store_name, foot_traffic_min, foot_traffic_max, percent_entering, donuts_ordered) {
+    this.store_name = store_name;
+    this.percent_entering = percent_entering;
+    this.donuts_ordered = donuts_ordered;
+    this.foot_traffic_min = foot_traffic_min;
+    this.foot_traffic_max = foot_traffic_max;
+    this.footTrafficInt= function(foot_traffic_min, foot_traffic_max) {
+      return Math.floor(Math.random() * ((this.foot_traffic_max - this.foot_traffic_min) + this.foot_traffic_min));
+    };
+    this.donutCalculation= function () {
+      return((this.footTrafficInt() * this.percent_entering) * this.donuts_ordered);
+    };
+    this.report = function() {
+      console.log(this.store_name + " needs " + (this.donutCalculation()) + " donuts per this hour");
+    };
+  }
+
+  var downtown = new Store("Downtown", 80, 220, 10, 4),
+    capitolHill = new Store ("Capitol Hill", 5, 45, 45, 2),
+    southLakeUnion = new Store ("South Lake Union", 180, 250, 5, 6),
+    wedgewood = new Store ("Wedgewood", 20, 60, 20, 1.5),
+    ballard = new Store ("Ballard", 25, 175, 33, 1);
+  
+    
+  
+  for (var i = 0; i < 11 ; i++) {
+      (capitolHill.report());
+      (downtown.report());
+      (southLakeUnion.report());
+      (wedgewood.report());
+      (ballard.report());
+    }
+  
+
+  
+
+  
+</script>
