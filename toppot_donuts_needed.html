@@ -12,7 +12,7 @@
       return((this.footTrafficInt() * this.percent_entering) * this.donuts_ordered);
     };
     this.report = function() {
-      console.log(this.store_name + " needs " + (this.donutCalculation()) + " donuts per this hour");
+      console.log(this.store_name + " needs " + (this.donutCalculation()) + " donuts for the " + i + " hour of the day");
     };
   }
 
@@ -22,7 +22,7 @@
     wedgewood = new Store ("Wedgewood", 20, 60, 20, 1.5),
     ballard = new Store ("Ballard", 25, 175, 33, 1);
   
-  for (var i = 0; i < 11 ; i++) {
+  for (var i = 1; i < 12 ; i++) {
       (capitolHill.report());
       (downtown.report());
       (southLakeUnion.report());
