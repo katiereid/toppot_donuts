@@ -6,7 +6,7 @@
     this.foot_traffic_min = foot_traffic_min;
     this.foot_traffic_max = foot_traffic_max;
     this.footTrafficInt= function(foot_traffic_min, foot_traffic_max) {
-      return Math.floor(Math.random() * ((this.foot_traffic_max - this.foot_traffic_min) + this.foot_traffic_min));
+      return Math.floor(Math.random() * ((this.foot_traffic_max - this.foot_traffic_min + 1) + this.foot_traffic_min));
     };
     this.donutCalculation= function () {
       return((this.footTrafficInt() * this.percent_entering) * this.donuts_ordered);
@@ -22,18 +22,11 @@
     wedgewood = new Store ("Wedgewood", 20, 60, 20, 1.5),
     ballard = new Store ("Ballard", 25, 175, 33, 1);
   
-    
-  
   for (var i = 0; i < 11 ; i++) {
       (capitolHill.report());
       (downtown.report());
       (southLakeUnion.report());
       (wedgewood.report());
       (ballard.report());
-    }
-  
-
-  
-
-  
+  }
 </script>
