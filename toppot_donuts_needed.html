@@ -1,0 +1,35 @@
+<script>
+  var stores = [];
+  function Store(store_name, foot_traffic_min, foot_traffic_max, percent_entering, donuts_ordered) {
+    this.store_name = store_name;
+    this.percent_entering = percent_entering;
+    this.donuts_ordered = donuts_ordered;
+    this.foot_traffic_min = foot_traffic_min;
+    this.foot_traffic_max = foot_traffic_max;
+    this.footTrafficInt= function() {
+      return Math.ceil((Math.random() * (this.foot_traffic_max - this.foot_traffic_min)) + this.foot_traffic_min);
+    }
+    this.donutCalculation= function () {
+      return(Math.ceil(this.footTrafficInt() * (this.percent_entering / 100) * this.donuts_ordered));
+    }
+    this.report = function() { 
+      var dailyTotal   = 0;
+      for (var i = 1; i < 12 ; i++) {
+      console.log(this.store_name + " needs " + (this.donutCalculation()) + " donuts for the " + i + " hour of the day");
+      dailyTotal += this.donutCalculation();
+    }
+    console.log(dailyTotal); 
+  };
+}
+
+  stores.push(new Store("Downtown",     80,  220, 10,  4   ));
+  stores.push(new Store("Capitol HilL", 5,   45,  45, 2   ));
+  stores.push(new Store("SLU",          180, 250, 5, 6   ));
+  stores.push(new Store("Wedgewood",    20,  60,  2,  1.5 ));
+  stores.push(new Store("Ballard",      25,  175, 33, 1   ));
+
+for(index in stores) {
+    stores[index].report();  
+}
+
+</script>
